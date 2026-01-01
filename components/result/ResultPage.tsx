@@ -54,6 +54,7 @@ export default function ResultPage() {
         const fetchSummary = async () => {
             setLoadingSummary(true);
             try {
+                // 1. 调用总结 API，传入用户的答案、测试模式、语言和分数
                 const res = await fetch('/api/summary', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -65,6 +66,8 @@ export default function ResultPage() {
                     })
                 });
                 const data = await res.json();
+
+                // 2. 如果成功返回 reply，则更新状态以显示分析结果
                 if (data.reply) {
                     setAiSummary(data.reply);
                 }

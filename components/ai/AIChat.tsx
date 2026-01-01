@@ -26,26 +26,31 @@ export default function AIChat() {
     }, [messages, isChatOpen]);
 
     const handleSend = async () => {
+        // 1. 校验：输入为空或正在加载时不处理
         if (!input.trim() || isLoading) return;
 
         const userMsg = input.trim();
+        // 2. 乐观更新：立即将用户消息添加到界面
         setMessages(prev => [...prev, { role: 'user', content: userMsg }]);
         setInput("");
         setIsLoading(true);
 
         try {
+            // 3. 发送请求到后端 API
             const res = await fetch('/api/chat', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ messages: [...messages, { role: 'user', content: userMsg }] }) // Send history context
+                body: JSON.stringify({ messages: [...messages, { role: 'user', content: userMsg }] }) // 发送完整的上下文历史
             });
 
             if (!res.ok) throw new Error("API Error");
 
+            // 4. 解析返回结果并显示 AI 回复
             const data = await res.json();
             setMessages(prev => [...prev, { role: 'assistant', content: data.reply }]);
 
         } catch (e) {
+            // 5. 错误处理：提示用户服务不可用
             setMessages(prev => [...prev, { role: 'assistant', content: "抱歉，AI服务暂时不可用，请稍后再试。" }]);
         } finally {
             setIsLoading(false);
