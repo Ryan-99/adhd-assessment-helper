@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-end-rgb: 255, 255, 255;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: #EFF6FF;
+}
+
+.option-selected {
+    background-color: #2C5282 !important;
+    color: white !important;
+    border-color: #2C5282 !important;
+    transform: scale(1.02);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom scrollbar for chat history if needed */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
