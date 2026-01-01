@@ -6,9 +6,23 @@ import OpenAI from 'openai';
 const getBaseUrl = () => {
     let url = process.env.OPENAI_BASE_URL;
     if (!url) return undefined;
-    if (url.endsWith('/chat/completions')) {
-        return url.replace('/chat/completions', '');
+
+    // Remove trailing slash
+    if (url.endsWith('/')) {
+        url = url.slice(0, -1);
     }
+
+    // Remove /chat/completions suffix if present
+    if (url.endsWith('/chat/completions')) {
+        url = url.replace('/chat/completions', '');
+    }
+
+    // Remove trailing slash again if it appeared after replacement
+    if (url.endsWith('/')) {
+        url = url.slice(0, -1);
+    }
+
+    console.log("Using Custom Base URL:", url);
     return url;
 };
 
