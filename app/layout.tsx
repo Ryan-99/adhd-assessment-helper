@@ -5,7 +5,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-    title: "ADHD Assessment Helper",
+    title: "ADHD测试-EverNow",
     description: "Self-assessment tool for Adult ADHD based on WHO ASRS v1.1",
 };
 
