@@ -13,7 +13,7 @@ export async function POST(req: Request) {
         const { valid } = verifyCode(code);
 
         if (valid) {
-            return NextResponse.json({ success: true, quotaAdded: 3 });
+            return NextResponse.json({ success: true, quotaAdded: 10 });
         } else {
             return NextResponse.json({ success: false, error: 'Invalid code' }, { status: 400 });
         }

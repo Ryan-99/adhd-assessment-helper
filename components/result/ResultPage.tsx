@@ -6,6 +6,8 @@ import { db } from "@/lib/db";
 import { Sparkles, MessageSquare, RotateCcw } from "lucide-react";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import { uiStrings } from "@/lib/data";
 
 export default function ResultPage() {
@@ -115,8 +117,10 @@ export default function ResultPage() {
 
                     {aiSummary && (
                         <div className="mt-4 p-4 bg-blue-50 rounded-xl border border-blue-100 text-gray-700">
-                            <p className="font-semibold text-xs text-primary mb-1">AI ANALYSIS:</p>
-                            {aiSummary}
+                            <div className="font-semibold text-xs text-primary mb-1">AI ANALYSIS:</div>
+                            <div className="prose prose-sm max-w-none prose-blue prose-p:my-1 prose-headings:my-2">
+                                <ReactMarkdown remarkPlugins={[remarkGfm]}>{aiSummary}</ReactMarkdown>
+                            </div>
                         </div>
                     )}
                 </div>

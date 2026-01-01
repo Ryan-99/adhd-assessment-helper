@@ -22,6 +22,11 @@ const getBaseUrl = () => {
         url = url.slice(0, -1);
     }
 
+    // Auto-append /v1 if missing
+    if (!url.endsWith('/v1')) {
+        url += '/v1';
+    }
+
     console.log("Using Custom Base URL:", url);
     return url;
 };

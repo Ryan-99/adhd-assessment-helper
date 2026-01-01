@@ -36,7 +36,7 @@ export const useAssessmentStore = create<AssessmentState>((set, get) => ({
     totalSteps: 6,
     answers: {},
     language: 'zh-CN', // Default to SC
-    chatQuota: 2, // Default free quota
+    chatQuota: 3, // Default free quota
     isChatOpen: false,
 
     setView: (view) => set({ view }),

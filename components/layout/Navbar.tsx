@@ -21,10 +21,9 @@ export default function Navbar() {
             <div className="flex justify-between w-full max-w-2xl items-center h-full">
                 <div
                     onClick={reset}
-                    className="text-primary font-bold text-lg tracking-wide flex items-center cursor-pointer select-none gap-2 hover:opacity-80 transition-opacity"
+                    className="flex items-center cursor-pointer select-none hover:opacity-80 transition-opacity"
                 >
-                    <Brain className="h-6 w-6" />
-                    <span>ADHD Helper</span>
+                    <img src="/images/evernow_logo.jpg" alt="EverNow Logo" className="h-8 w-auto object-contain" />
                 </div>
                 <div className="flex gap-4 font-medium text-primary/80 items-center h-full">
 
