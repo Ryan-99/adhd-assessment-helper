@@ -2,7 +2,7 @@
 
 这是一个基于 WHO ASRS v1.1 量表的现代化成人 ADHD 筛查工具。采用 Next.js 构建，支持多语言、AI 辅助解读以及本地隐私存储。
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fyour-username%2Fadhd-assessment-helper&env=OPENAI_API_KEY,CODE_SECRET,OPENAI_BASE_URL,API_MODEL)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FRyan-99%2Fadhd-assessment-helper&env=OPENAI_API_KEY,CODE_SECRET,OPENAI_BASE_URL,API_MODEL)
 
 ## ✨ 主要功能
 
