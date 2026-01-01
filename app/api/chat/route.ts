@@ -19,12 +19,11 @@ export async function POST(req: Request) {
 
         // 3. 调用 OpenAI API (Chat Completion)
         const completion = await openai.chat.completions.create({
+            model: process.env.API_MODEL || "gpt-3.5-turbo",
             messages: [
                 { role: "system", content: systemPrompt }, // 插入系统设定
                 ...messages // 附带完整的对话历史
             ],
-            // 使用环境变量中指定的模型，默认为 gpt-3.5-turbo
-            model: process.env.API_MODEL || "gpt-3.5-turbo",
         });
 
         // 4. 获取 AI 的回复内容

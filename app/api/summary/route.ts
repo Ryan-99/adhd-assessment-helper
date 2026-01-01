@@ -17,12 +17,11 @@ export async function POST(req: Request) {
 
         // 3. 调用 OpenAI API
         const completion = await openai.chat.completions.create({
+            model: process.env.API_MODEL || "gpt-3.5-turbo",
             messages: [
                 { role: "system", content: systemPrompt },
                 { role: "user", content: `Patient Answers: ${JSON.stringify(answers)}` }
             ],
-            // 同样支持自定义模型
-            model: process.env.API_MODEL || "gpt-3.5-turbo",
         });
 
         const reply = completion.choices[0].message.content;
